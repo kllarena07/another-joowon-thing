@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+    <head>
+        <style>
+            >
+        /* 1. Use a more-intuitive box-sizing model */
+        *, *::before, *::after {
+                box-sizing: border-box;
+            }
+
+            /* 2. Remove default margin */
+            * {
+                margin: 0;
+            }
+
+            /* 3. Enable keyword animations */
+            @media (prefers-reduced-motion: no-preference) {
+                html {
+                    interpolate-size: allow-keywords;
+                }
+            }
+
+            body {
+                /* 4. Add accessible line-height */
+                line-height: 1.5;
+                /* 5. Improve text rendering */
+                -webkit-font-smoothing: antialiased;
+            }
+
+            /* 6. Improve media defaults */
+            img,
+            picture,
+            video,
+            canvas,
+            svg {
+                display: block;
+                max-width: 100%;
+            }
+
+            /* 7. Inherit fonts for form controls */
+            input,
+            button,
+            textarea,
+            select {
+                font: inherit;
+            }
+
+            /* 8. Avoid text overflows */
+            p,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                overflow-wrap: break-word;
+            }
+
+            /* 9. Improve line wrapping */
+            p {
+                text-wrap: pretty;
+            }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                text-wrap: balance;
+            }
+
+            /*
+          10. Create a root stacking context
+        */
+            #root,
+            #__next {
+                isolation: isolate;
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <button id="start">Start</button>
+        </section>
+        <section id="bruh" style="display: none; width: 100%">
+            <video playsinline muted id="lmaoVideo" style="width: 100%">
+                <source src="yes.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            <audio id="lmaoAudio" style="opacity: 0">
+                <source src="Untitled song.mp3" />
+                Your browser does not support the audio element.
+            </audio>
+            <section>
+                <p style="text-align: center; font-weight: bold">
+                    I tried making something that would mold Joowons LinkedIn
+                    pfp to become my resume but didn't go according to plan
+                </p>
+            </section>
+            <section
+                style="
+                    display: flex;
+                    padding: 6px;
+                    justify-content: space-between;
+                "
+            >
+                <button id="musicController">Stop Music</button>
+                <p>
+                    <a href="/KieranLlarena.Resume2025.pdf" download
+                        >My resume</a
+                    >
+                </p>
+                <p>
+                    Repo for that
+                    <a
+                        href="https://github.com/kllarena07/for-joowon"
+                        target="_blank"
+                        rel="noreferrer"
+                        >weird molding thing</a
+                    >
+                </p>
+            </section>
+        </section>
+        <script>
+            const start = document.getElementById("start");
+            const bruh = document.getElementById("bruh");
+            const lmaoVideo = document.getElementById("lmaoVideo");
+            const lmaoAudio = document.getElementById("lmaoAudio");
+            const musicController = document.getElementById("musicController");
+
+            start.addEventListener("click", () => {
+                start.style.display = "none";
+                bruh.style.display = "block";
+                lmaoVideo.play();
+                lmaoAudio.play();
+            });
+
+            musicController.addEventListener("click", () => {
+                if (lmaoAudio.paused) {
+                    lmaoAudio.play();
+                    musicController.textContent = "Stop Music";
+                } else {
+                    lmaoAudio.pause();
+                    musicController.textContent = "Play Music";
+                }
+            });
+        </script>
+    </body>
+</html>
